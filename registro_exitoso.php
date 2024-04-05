@@ -28,7 +28,7 @@
     <div class="container">
         <h1>¡Registro Exitoso!</h1>
         <p>¡Gracias por registrarte en nuestra aplicación! Ahora puedes iniciar sesión y comenzar a disfrutar de nuestros servicios.</p>
-        <p><a href="inicio_sesion.php">Iniciar Sesión</a></p>
+        <p><a href="inicio_sesion.html">Iniciar Sesión</a></p>
     </div>
 </body>
 </html>
