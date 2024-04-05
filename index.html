@@ -54,6 +54,20 @@
                 <input type="submit" value="Publicar">
             </form>
         </section>
+         <!-- Sección de Edición de Perfil -->
+         <section id="editar_perfil">
+            <h2>Editar Perfil</h2>
+            <form action="procesar_edicion_perfil.php" method="post">
+                <label for="edit_username">Nombre de usuario:</label>
+                <input type="text" id="edit_username" name="edit_username" required>
+                <label for="edit_email">Correo electrónico:</label>
+                <input type="email" id="edit_email" name="edit_email" required>
+                <label for="edit_password">Nueva Contraseña:</label>
+                <input type="password" id="edit_password" name="edit_password">
+                <input type="submit" value="Guardar Cambios">
+            </form>
+        </section>
+
 
     </main>
     <footer>
