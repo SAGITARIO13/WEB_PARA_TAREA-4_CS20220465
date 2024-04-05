@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["username"]) && isset($
     $password = $_POST["password"];
 
     $conexion = mysqli_connect("localhost", "root", "", "myweb");
-    $query = "INSERT INTO usuarios (nombre_usuario, email, password) VALUES ('$username', '$email', '$password')";
+    $query = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
     $result = mysqli_query($conexion, $query);
 
     header("Location: registro_exitoso.php");
