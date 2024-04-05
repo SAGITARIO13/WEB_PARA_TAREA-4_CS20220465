@@ -43,6 +43,17 @@
                 <input type="submit" value="Iniciar Sesión">
             </form>
         </section>
+         <!-- Sección de Creación de Publicación -->
+         <section id="crear_publicacion">
+            <h2>Crear Publicación</h2>
+            <form action="procesar_creacion_publicacion.php" method="post">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="content">Contenido:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                <input type="submit" value="Publicar">
+            </form>
+        </section>
 
     </main>
     <footer>
