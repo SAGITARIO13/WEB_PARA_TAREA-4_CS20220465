@@ -9,7 +9,6 @@
 <body>
     <nav>
         <a href="crear_publicacion.html">Crear Publicación</a>
-        <a href="editar_perfil.html">Editar Perfil</a>
         <a href="home.php">Buscar Publicaciones</a>
     </nav>
     <h1>Publicaciones</h1>
@@ -45,8 +44,8 @@
             
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['title'] . "</td>";
-                echo "<td>" . $row['content'] . "</td>";
+                echo "<td>" . $row['titulo'] . "</td>";
+                echo "<td>" . $row['contenido'] . "</td>";
                 echo "</tr>";
             }
           

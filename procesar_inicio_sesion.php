@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login_email"]) && isse
  
     $_SESSION["loggedin"] = true;
     $_SESSION["username"] = $username;
-    header("Location: home.php");
+    header("Location: crear_publicacion.html");
     exit;
     } 
     else {

@@ -1,25 +1,38 @@
 <?php
-$user_id = $_SESSION['user_id'];
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["title"]) && isset($_POST["content"])) {
- 
-    $title = $_POST["title"];
-    $content = $_POST["content"];
+session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titulo"]) && isset($_POST["contenido"])) {
+    
+    
+    if (!isset($_SESSION['user_id'])) {
+        echo "Error: El usuario no ha iniciado sesión.";
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+    $title = $_POST["titulo"];
+    $content = $_POST["contenido"];
+
+ 
     $conexion = mysqli_connect("localhost", "root", "", "myweb");
-    $query = "INSERT INTO publicaciones (title, content) VALUES ('$title', '$content')";
+
+    
+    $query = "SELECT id FROM usuarios WHERE id = '$user_id'";
     $result = mysqli_query($conexion, $query);
+    if (!$result || mysqli_num_rows($result) == 0) {
+        echo "Error: El usuario no existe.";
+        exit;
+    }
+
+  
+    $query = "INSERT INTO publicaciones (user_id, titulo, contenido) VALUES ('$user_id', '$title', '$content')";
+    $result = mysqli_query($conexion, $query);
+
+    if ($result) {
+        header("Location: registro_exitoso.php");
+        exit;
+    } else {
+        echo "Error al procesar la creación de la publicación.";
+    }
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicación Exitosa</title>
-</head>
-<body>
-    <h1>¡Publicación Exitosa!</h1>
-    <p>Tu publicación ha sido agregada correctamente.</p>
-    <a href="home.php"><button>Volver a la página principal</button></a>
-</body>
-</html>
