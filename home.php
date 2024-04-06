@@ -46,6 +46,7 @@
                 echo "<tr>";
                 echo "<td>" . $row['titulo'] . "</td>";
                 echo "<td>" . $row['contenido'] . "</td>";
+                echo "<td><a href='procesar_edicion_p.php?id=" . $row['id'] . "'>Editar</a></td>";
                 echo "</tr>";
             }
           
