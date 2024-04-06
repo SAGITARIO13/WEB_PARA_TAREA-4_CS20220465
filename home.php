@@ -9,7 +9,6 @@
 <body>
     <nav>
         <a href="crear_publicacion.html">Crear Publicación</a>
-        <a href="editar_perfil.html">Editar Perfil</a>
         <a href="home.php">Buscar Publicaciones</a>
     </nav>
     <h1>Publicaciones</h1>
@@ -36,7 +35,7 @@
 
             $query = "SELECT * FROM publicaciones";
             if (!empty($search_term)) {
-                $query .= " WHERE title LIKE '%$search_term%' OR content LIKE '%$search_term%'";
+                $query .= " WHERE titulo LIKE '%$search_term%' OR contenido LIKE '%$search_term%'";
             }
 
             
@@ -45,8 +44,8 @@
             
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['title'] . "</td>";
-                echo "<td>" . $row['content'] . "</td>";
+                echo "<td>" . $row['titulo'] . "</td>";
+                echo "<td>" . $row['contenido'] . "</td>";
                 echo "</tr>";
             }
           
