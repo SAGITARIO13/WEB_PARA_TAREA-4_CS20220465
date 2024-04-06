@@ -12,15 +12,12 @@ class TestCreatePublication(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get("http://localhost/TAREA%204/crear_publicacion.html")
 
-    def test_create_publication(self):
+    def test_create_publication_without_login(self):
         self.take_screenshot("create_publication_page")
-        
-        # Simular inicio de sesión (suponiendo que tenemos un usuario con sesión iniciada)
-        # Aquí puedes incluir el inicio de sesión con Selenium si es necesario
 
-        # Simular la creación de una publicación
-        title_input = self.driver.find_element(By.ID, "title")
-        content_input = self.driver.find_element(By.ID, "content")
+
+        title_input = self.driver.find_element(By.ID, "titulo")
+        content_input = self.driver.find_element(By.ID, "contenido")
         publish_button = self.driver.find_element(By.CSS_SELECTOR, "input[type='submit']")
 
         title_input.send_keys("Título de prueba")
@@ -30,9 +27,9 @@ class TestCreatePublication(unittest.TestCase):
         
         publish_button.click()
 
-        # Esperar a que la página de éxito de publicación se cargue
-        WebDriverWait(self.driver, 10).until(EC.title_contains("Publicación Exitosa"))
-        self.take_screenshot("publication_successful")
+      
+        WebDriverWait(self.driver, 10).until(EC.url_to_be("http://localhost/TAREA%204/home.php"))
+        self.take_screenshot("filled_publication_form")
 
     def tearDown(self):
         self.driver.quit()

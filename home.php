@@ -35,7 +35,7 @@
 
             $query = "SELECT * FROM publicaciones";
             if (!empty($search_term)) {
-                $query .= " WHERE title LIKE '%$search_term%' OR content LIKE '%$search_term%'";
+                $query .= " WHERE titulo LIKE '%$search_term%' OR contenido LIKE '%$search_term%'";
             }
 
             
